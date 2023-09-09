@@ -1,4 +1,5 @@
 from appium.webdriver.common.appiumby import AppiumBy
+
 from utilities.generate_log import*
 from utilities.config_reader import read_config
 
@@ -37,6 +38,8 @@ class BasePage:
             self.driver.find_element(AppiumBy.ACCESSIBILITY_ID,read_config('locators',locator)).send_keys(value)
         elif(str(locator).endswith('_ID')):
             self.driver.find_element(AppiumBy.ID,read_config('locators',locator)).send_keys(value)
+        elif(str(locator).endswith('_CLASS')):
+            self.driver.find_element(AppiumBy.CLASS_NAME,read_config('locators',locator)).send_keys(value)
         logger.info("Typing an element" + str(locator) + f" value is {value}")    
 
 

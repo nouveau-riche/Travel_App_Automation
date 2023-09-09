@@ -12,7 +12,9 @@ class HotelPage(BasePage):
         self.type('search_text_ID',city)
         self.clickIndex('open_searched_item_ID',0)
         self.click('search_button_ID')
+        
         self.driver.implicitly_wait(10)
+        ScrollUtil.swipeUp(2,self.driver)
         ScrollUtil.scrollToTextByAndroidUIAutomator("Hotel Nirmal Mahal", self.driver)
         
 
